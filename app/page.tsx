@@ -1,5 +1,7 @@
 "use client";
 
+// favicon.ico og og:image
+
 import { User, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -13,20 +15,24 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="w-[85%] md:w-[80%] flex gap-6 md:gap-12 items-end">
+                <nav className="w-[85%] md:w-[80%] flex gap-6 md:gap-12 items-end">
                     <h1 className="text-2xl text-blue-500 md:text-3xl">
                         <Link href="/">Karlskov Auto</Link>
                     </h1>
                     <ul className="hidden gap-3 md:flex md:gap-5">
                         <li className="text-sm transition duration-500 md:text-base hover:text-blue-500">
-                            <Link href="/#aabningstider">åbningstider</Link>
+                            <Link href="/#aabningstider" aria-label="Se åbningstider">
+                                åbningstider
+                            </Link>
                         </li>
 
                         <li className="text-sm transition duration-500 md:text-base hover:text-blue-500">
-                            <Link href="/#kontakt">kontakt</Link>
+                            <Link href="/#kontakt" aria-label="Se kontaktinformation">
+                                kontakt
+                            </Link>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </motion.header>
             <main className="bg-black">
                 <section className="flex relative flex-col items-center pt-5 w-screen h-screen md:pt-7">
@@ -51,9 +57,9 @@ export default function Home() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6, duration: 0.6 }}
                         >
-                            Reparation af alle bilmærker, Reparation af varebiler, Reparation
-                            skader, Aircondition service, Dækcenter, Klargøring til syn,
-                            Service eftersyn, Reparation trailer, forsikringskader
+                            Vi tilbyder Reparation af alle bilmærker, Reparation af varebiler,
+                            Reparation skader, Aircondition service, Dækcenter, Klargøring til
+                            syn, Service eftersyn, Reparation trailer, forsikringskader
                         </motion.p>
                     </div>
                 </section>
@@ -183,6 +189,9 @@ export default function Home() {
                     </div>
                 </motion.section>
             </main>
+            <footer className="py-10 text-sm text-center text-gray-400">
+                © 2025 Karlskov Auto · Teknikvej 4, 4532 Gislinge · 24491915
+            </footer>
         </>
     );
 }

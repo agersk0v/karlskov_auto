@@ -30,6 +30,16 @@ export const metadata: Metadata = {
         siteName: "Karlskov Auto",
         locale: "da_DK",
         type: "website",
+        /*
+        images: [
+            {
+              url: "https://karlskov-auto.vercel.app/og-image.jpg",
+              width: 1200,
+              height: 630,
+              alt: "Karlskov Auto – Autoværksted i Gislinge",
+            },
+        ],
+        */
     },
 };
 
