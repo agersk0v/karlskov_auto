@@ -1,21 +1,28 @@
 import { User, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <header className="flex sticky top-0 left-0 z-20 justify-center items-center py-5 w-screen bg-black">
-        <div className="w-[80%] flex gap-12 items-center">
-          <h1 className="text-3xl text-blue-500">Karlskov Auto</h1>
+        <div className="w-[80%] flex gap-12 items-end">
+          <h1 className="text-3xl text-blue-500">
+            <Link href="/">Karlskov Auto</Link>
+          </h1>
           <ul className="hidden gap-5 md:flex">
-            <li>åbningstider</li>
-            <li>kontakt</li>
+            <li>
+              <Link href="/#aabningstider">åbningstider</Link>
+            </li>
+            <li>
+              <Link href="/#kontakt">kontakt</Link>
+            </li>
           </ul>
         </div>
       </header>
-      <main>
-        <section className="flex relative flex-col items-center pt-7 w-screen h-screen">
+      <main className="bg-black">
+        <section className="flex relative flex-col items-center pt-7 w-screen h-screen md:pt-0">
           <div className="absolute inset-0 z-0 bg-center bg-cover brightness-30 bg-[url(/images/hero.jpg)]"></div>
-          <div className="flex relative z-10 flex-col gap-7 text-center">
+          <div className="flex relative z-10 flex-col gap-7 h-full text-center md:justify-center">
             <h2 className="text-5xl text-blue-500">
               Dit nye lokale autoværksted
             </h2>
@@ -25,7 +32,10 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section className="flex flex-col items-center pt-12">
+        <section
+          className="flex flex-col items-center pt-28"
+          id="aabningstider"
+        >
           <div className="w-[80%] flex flex-col gap-20">
             <h2 className="text-5xl text-center md:text-start">Åbningstider</h2>
             <div className="flex flex-col gap-4 justify-between md:flex-row">
@@ -44,9 +54,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="flex flex-col items-center py-28">
+        <section className="flex flex-col items-center py-28" id="kontakt">
           <div className="w-[80%] flex flex-col  gap-7">
-            <h2 className="text-5xl">Kontakt</h2>
+            <h2 className="text-5xl text-center md:text-start">Kontakt</h2>
             <div className="flex flex-col gap-7 md:flex-row">
               <div className="w-[50%] aspect-square">
                 <img
