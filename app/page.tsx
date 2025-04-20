@@ -2,11 +2,31 @@
 
 // favicon.ico og og:image
 
-import { User, Phone, MapPin } from "lucide-react";
+import { User, Phone, MapPin, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Home() {
+    const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
+
+    const animationContainer = {
+        show: {
+            transition: {
+                staggerChildren: 0.3,
+            },
+        },
+    };
+
+    const textFromSide = {
+        hidden: { opacity: 0, x: -100, scale: 0 },
+        show: {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+        },
+    };
+
     return (
         <>
             <motion.header
@@ -15,23 +35,79 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <nav className="w-[85%] md:w-[80%] flex gap-6 md:gap-12 items-end">
-                    <h1 className="text-2xl text-blue-500 md:text-3xl">
-                        <Link href="/">Karlskov Auto</Link>
-                    </h1>
-                    <ul className="hidden gap-3 md:flex md:gap-5">
-                        <li className="text-sm transition duration-500 md:text-base hover:text-blue-500">
-                            <Link href="/#aabningstider" aria-label="Se åbningstider">
-                                åbningstider
-                            </Link>
-                        </li>
+                <nav className="w-[85%] md:w-[80%] flex justify-between items-center">
+                    <AnimatePresence initial={false}>
+                        {isNavOpen && (
+                            <motion.div
+                                initial={{ y: "-100%" }}
+                                animate={{ y: "0%" }}
+                                transition={{
+                                    default: { type: "tween" },
+                                }}
+                                exit={{ y: "-100%" }}
+                                className="absolute top-0 left-0 z-50 p-5 w-screen min-h-screen bg-black"
+                            >
+                                <button
+                                    aria-label="close navigation"
+                                    className="flex justify-end w-full text-gray"
+                                    onClick={() => setIsNavOpen(false)}
+                                >
+                                    <X color="currentColor" size="35" strokeWidth={3} />
+                                </button>
+                                <motion.ul
+                                    variants={animationContainer}
+                                    initial="hidden"
+                                    animate="show"
+                                    className="flex flex-col gap-5 justify-around items-center p-5 border-b-2 border-white border-dashed text-md"
+                                >
+                                    <motion.li
+                                        transition={{ duration: 0.5 }}
+                                        variants={textFromSide}
+                                    >
+                                        <Link
+                                            href="#aabningstider"
+                                            onClick={() => setIsNavOpen(false)}
+                                        >
+                                            Åbningstider
+                                        </Link>
+                                    </motion.li>
+                                    <motion.li
+                                        transition={{ duration: 0.5 }}
+                                        variants={textFromSide}
+                                    >
+                                        <Link href="#kontakt" onClick={() => setIsNavOpen(false)}>
+                                            Kontakt
+                                        </Link>
+                                    </motion.li>
+                                </motion.ul>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
 
-                        <li className="text-sm transition duration-500 md:text-base hover:text-blue-500">
-                            <Link href="/#kontakt" aria-label="Se kontaktinformation">
-                                kontakt
-                            </Link>
-                        </li>
-                    </ul>
+                    <div className="flex gap-6 items-end md:gap-12">
+                        <h1 className="text-2xl text-blue-500 md:text-3xl">
+                            <Link href="/">Karlskov Auto</Link>
+                        </h1>
+                        <ul className="hidden gap-3 md:flex md:gap-5">
+                            <li className="text-sm transition duration-500 md:text-base hover:text-blue-500">
+                                <Link href="/#aabningstider" aria-label="Se åbningstider">
+                                    åbningstider
+                                </Link>
+                            </li>
+
+                            <li className="text-sm transition duration-500 md:text-base hover:text-blue-500">
+                                <Link href="/#kontakt" aria-label="Se kontaktinformation">
+                                    kontakt
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <button
+                        className="text-white md:hidden"
+                        onClick={() => setIsNavOpen(true)}
+                    >
+                        <Menu size="32" />
+                    </button>
                 </nav>
             </motion.header>
             <main className="bg-black">
