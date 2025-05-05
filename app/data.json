@@ -1,0 +1,54 @@
+{
+  "header": {
+    "logo": "images/logo1.png",
+    "menuItems": [
+      {
+        "label": "åbningstider",
+        "href": "/#aabningstider"
+      },
+      {
+        "label": "kontakt",
+        "href": "/#kontakt"
+      }
+    ]
+  },
+  "heroSection": {
+    "backgroundImage": "images/hero.jpg",
+    "title": "Dit nye lokale autoværksted",
+    "description": "Vi tilbyder Reparation af alle bilmærker, Reparation af varebiler, Reparation skader, Aircondition service, Dækcenter, Klargøring til syn, Service eftersyn, Reparation trailer, forsikringskader"
+  },
+  "openingHours": [
+    {
+      "time": "16:00-21:00",
+      "days": "mandag-torsdag"
+    },
+    {
+      "time": "16:00-19:00",
+      "days": "fredag"
+    },
+    {
+      "time": "Efter aftale",
+      "days": "lørdag-søndag"
+    }
+  ],
+  "contactSection": {
+    "contactDetails": [
+      {
+        "icon": "MapPin",
+        "text": "Teknikvej 4, 4532 Gislinge"
+      },
+      {
+        "icon": "Phone",
+        "text": "24491915"
+      },
+      {
+        "icon": "User",
+        "text": "Henrik Karlskov"
+      }
+    ],
+    "logo": "images/logo2.png"
+  },
+  "footer": {
+    "text": "© 2025 Karlskov Auto · Teknikvej 4, 4532 Gislinge · 24491915"
+  }
+}
